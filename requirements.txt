@@ -1,0 +1,11 @@
+streamlit
+pandas
+numpy
+plotly
+yfinance
+requests
+transformers
+torch
+accelerate
+sentencepiece
+huggingface_hub
