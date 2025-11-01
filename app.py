@@ -187,7 +187,6 @@ if 'chat_history' not in st.session_state:
 
 # Initialize the LLM for financial advice
 @st.cache_resource
-from transformers import pipeline
 
 def load_model():
     try:
