@@ -187,12 +187,15 @@ if 'chat_history' not in st.session_state:
 
 # Initialize the LLM for financial advice
 @st.cache_resource
-def load_llm_model():
+from transformers import pipeline
+
+def load_model():
     try:
         return pipeline("text-generation", model="TinyLlama/TinyLlama-1.1B-Chat-v1.0")
     except Exception as e:
-        st.error(f"Error loading LLM model: {e}")
-        return None
+        print("⚠️ TinyLlama failed, switching to distilgpt2:", e)
+        return pipeline("text-generation", model="distilgpt2")
+
 
 # Stock Analysis Functions
 @st.cache_data(ttl=3600)
